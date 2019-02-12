@@ -1,0 +1,24 @@
+.UserCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(230, 227, 227);
+}
+.UserCard__image {
+    flex: 1;
+}
+.UserCard__image__img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.UserCard__content {
+    flex: 5;
+}
+.UserCard__content__title {
+    font-size: 12px;
+}
+.UserCard__content__description {
+    font-size: 10px;
+}

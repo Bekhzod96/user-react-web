@@ -1,0 +1,25 @@
+.Header {
+    
+    height:50px;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 5px 5px 100px #888888;
+}
+.Header__image{
+    float:left;
+}
+.Bootcamp{
+    float:left;
+    margin-left:10px;
+
+}
+.CreatePost{
+    float:right;
+}
+.Header__image__img {
+    margin-left:10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

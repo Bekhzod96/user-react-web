@@ -1,0 +1,60 @@
+.PostModal {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    background-color: rgba(0, 0, 0, 0.459);
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.PostModal__content {
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.PostModal__content__title {
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+}
+
+.PostModal__buttons {
+
+    margin-top: 20px;
+
+}
+

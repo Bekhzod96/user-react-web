@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: rgb(237, 237, 237);
+  padding-top: 70px;
+  
 }
 
 .App-logo {
@@ -30,4 +33,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App__Header{
+  position: fixed; 
+  top:0;
+  left:0;
+  right:0;
+  z-index: 2;
 }

@@ -1,0 +1,13 @@
+.Register{
+    height: 100vh;
+    background-color:rgb(196, 194, 194);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.Register__content{
+    width:30%;
+    background-color: white;
+    padding:20px;
+    border-radius: 10px;
+}
