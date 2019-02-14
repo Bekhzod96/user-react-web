@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
+/**anchor tag  */
+import { Link } from "react-router-dom";
 import "./Register.css"
 
 
@@ -21,11 +23,16 @@ class Register extends Component {
     // }
 
     onInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
-        console.log(e.target.name);
-        console.log([e.target.name]);
+        const { name } = e.target;
+
+        this.setState({ [name]: e.target.value });
+
     }
     render() {
+        const { email, password, username } = this.state;
+        const { onRegister } = this.props;
+
+
         return (
             <div className="Register">
                 <div className="Register__content">
@@ -34,9 +41,12 @@ class Register extends Component {
                         <div className="form-group">
                             <label>username</label>
                             <input
+                                /** when it happens changes in input field we send data to OnInputChange function*/
                                 onChange={this.onInputChange}
+                                /** We attache form-control class from reactbootsrap */
                                 className="form-control"
-                                type="email"
+                                type="text"
+                                /** name used to idetify key value onInputChange function */
                                 name="username" />
                         </div>
                         <div className="form-group">
@@ -45,7 +55,7 @@ class Register extends Component {
                                 onChange={this.onInputChange}
                                 className="form-control"
                                 type="email"
-                                name="username" />
+                                name="email" />
                         </div>
                         <div className="form-group">
                             <label>password</label>
@@ -56,7 +66,10 @@ class Register extends Component {
                                 name="password" />
                         </div>
 
-                        <Button color="dark">register</Button>
+                        <Button
+                            onClick={() => onRegister(username, email, password)}
+                            color="dark">Register</Button> <br />
+                        <Link to="/login">already registrated</Link>
                     </form>
                 </div>
 

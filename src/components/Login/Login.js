@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
+/**anchor tag  */
+import { Link } from "react-router-dom";
 import "./Login.css"
 
 
@@ -7,8 +9,8 @@ class Login extends Component {
     constructor() {
         super();
         this.state = {
-            email: null,
-            password: null,
+            email: "",
+            password: "",
         }
     }
 
@@ -22,8 +24,12 @@ class Login extends Component {
     onInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
+
+
     render() {
         const { email, password } = this.state;
+        const { onLogin } = this.props;
+
         return (
             <div className="Login">
                 <div className="Login__content">
@@ -49,8 +55,14 @@ class Login extends Component {
                             />
                         </div>
 
-                        <Button color="dark">Login</Button>
+                        <Button
+                            type="button"
+                            onClick={() => onLogin(email, password)}
+                            color="dark">Login</Button>
+
+                        <div className="Login__content__registration"><Link to="/register">Registration</Link></div>
                     </form>
+
                 </div>
 
             </div>
