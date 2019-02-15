@@ -1,5 +1,5 @@
 import BootcampAPI from "../../helpers/BootcampAPI";
-import { API, REGISTER_ERROR, REGISTER_SUCCESS, LOGIN_SUCCESS, LOGIN_ERROR } from "../../constants/";
+import { API, REGISTER_ERROR, REGISTER_SUCCESS, LOGIN_SUCCESS, LOGIN_ERROR, GET_USERS_SUCCESS, GET_USERS_ERROR } from "../../constants/";
 import CryptoJS from 'crypto-js';
 /**---- actions--------  */
 const registerSuccess = () => {
@@ -28,7 +28,20 @@ const loginError = () => {
         isLoggedIn: false,
     }
 }
-/**----action creators-------- */
+
+const getUserSuccess = (res) => {
+    return {
+        type: GET_USERS_SUCCESS,
+        payload: res.data.payload,
+    }
+}
+const getUserError = () => {
+    return {
+        type: GET_USERS_ERROR,
+    }
+}
+/**---
+ * -action creators-------- */
 
 export const register = (username, email, password) => {
     return dispatch => {
@@ -51,13 +64,26 @@ export const login = (email, password) => {
             .then(res => {
                 const token = res.data.payload.token;
                 /** Token is a key of the value of the token */
-                localStorage.setItem("Token", token);
+                localStorage.setItem("jwtToken", token);
                 dispatch(loginSuccess())
             })
 
             .catch(() => dispatch(loginError()));
     };
 
+}
+
+export const getUsers = () => {
+    return dispatch => {
+        return BootcampAPI.get(API.GET_USERS)
+            .then(res => {
+                dispatch(getUserSuccess(res))
+            })
+            .catch((err) => {
+                console.error(err);
+                dispatch(getUserError())
+            })
+    }
 }
 
 

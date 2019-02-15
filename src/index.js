@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers";
@@ -15,7 +15,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const store = createStore(rootReducer, {}, applyMiddleware(reduxThunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+    rootReducer,
+    {},
+    composeEnhancers(applyMiddleware(reduxThunk))
+);
+
+
 
 
 class Root extends Component {

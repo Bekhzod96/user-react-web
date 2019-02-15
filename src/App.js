@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 // import { Button } from 'reactstrap';
-import Posts from "./components/Posts/Posts";
-import UserList from "./components/UserLIst/UserList";
+
+import UserList from "./containers/UserListContainer";
 import Header from "./components/Header/Header";
+import PostContainer from './containers/PostContainer';
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-8">
-              <Posts />
+              <PostContainer />
             </div>
             <div className="col-4">
               <UserList />

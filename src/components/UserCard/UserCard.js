@@ -8,7 +8,7 @@ class UserCard extends Component {
 
   render() {
 
-    const { title, description, image } = this.props;
+    const { email, username, image } = this.props;
 
 
 
@@ -24,9 +24,9 @@ class UserCard extends Component {
 
         <div className="UserCard__content">
 
-          <div className="UserCard__content__title">{title}</div>
+          <div className="UserCard__content__title">{username}</div>
 
-          <div className="UserCard__content__description">{description}</div>
+          <div className="UserCard__content__description">{email}</div>
 
         </div>
 

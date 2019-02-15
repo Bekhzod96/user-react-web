@@ -4,7 +4,7 @@ class APIClass {
     constructor() {
         this.instance = axios.create({
             baseURL: process.env.REACT_APP_APIURL,
-            timeout: 1000
+            timeout: 10000
         });
     }
 
